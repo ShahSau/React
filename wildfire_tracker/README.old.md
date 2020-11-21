@@ -1,0 +1,1 @@
+# Wildfire tracker using NASA Open API and the Google Maps API

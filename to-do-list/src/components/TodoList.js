@@ -2,13 +2,13 @@ import React from  'react';
 
 import Todo from './Todo'
 
-const TodpList = ({todos})=>{
+const TodoList = ({todos, setTodos})=>{
 
     return (
      <div className="todo-container">
          <ul className="todo-list">
-             {todos.map(todo=>(
-                 <Todo key={todo.id} text={todo.text}/>
+             {todos.map((todo)=>(
+                 <Todo todo={todo} todos={todos} setTodos={setTodos}  key={todo.id} text={todo.text}/>
              ))}
          </ul>
     </div>
@@ -16,4 +16,4 @@ const TodpList = ({todos})=>{
 };
 
 
-export default TodpList;
+export default TodoList;

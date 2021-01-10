@@ -42,8 +42,8 @@ class App extends Component {
     this.setState({showPerson : !doesShow})
   }
   render() {
-    const style={
-      backgroundColor: 'white',
+    let style={
+      backgroundColor: 'green',
       font: 'inherit',
       border: '1px solid blue',
       padding:'8px',
@@ -65,6 +65,10 @@ class App extends Component {
       
       </div>
       )
+      style={
+        backgroundColor:"red",
+        border: '5px solid black',
+      }
     }
     return (
       <div className="App">

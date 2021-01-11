@@ -1,102 +1,125 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import './App.css';
-import Radium from'radium'
 import Person from './Person/Person';
 
+const StyledButton = styled.button`
+  background-color: ${props => props.alt ? 'red' : 'green'};
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+    color: ${props => props.alt ? 'white' : 'green'};;
+  }
+`;
+
 class App extends Component {
-  state={
-    person:[
-      {id:'wwr', name:'shah', age:90},
-      {id:'ttg',name:'sah', age:60},
-      {id:'kuj',name:'hah', age:50}
-    ]
-  }
+  state = {
+    persons: [
+      { id: 'asfa1', name: 'Max', age: 28 },
+      { id: 'vasdf1', name: 'Manu', age: 29 },
+      { id: 'asdf11', name: 'Stephanie', age: 26 }
+    ],
+    otherState: 'some other value',
+    showPersons: false
+  };
 
-
-  nameChangedHandler = (event,id)=>{
-    const personIndex = this.state.person.findIndex(p=>{
+  nameChangedHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
-    })
-    const per = {
-      ...this.state.person[personIndex]
+    });
+
+    const person = {
+      ...this.state.persons[personIndex]
     };
-    per.name = event.target.value;
 
-    const person= [...this.state.person]
-    person[personIndex]= per;
-    this.setState({
-      person: person})
-  }
+    // const person = Object.assign({}, this.state.persons[personIndex]);
 
-  deletePersonHandler = (personIndex) =>{
-    const person = [...this.state.person]
-    person.splice(personIndex,1)
-    this.setState({person:person})
+    person.name = event.target.value;
 
-  }
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
 
+    this.setState({ persons: persons });
+  };
 
-  togglePersonHandler=()=>{
-    const doesShow = this.state.showPerson;
-    this.setState({showPerson : !doesShow})
-  }
+  deletePersonHandler = personIndex => {
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
+  };
+
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow });
+  };
+
   render() {
-    let style={
+    const style = {
       backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
-      padding:'8px',
+      padding: '8px',
       cursor: 'pointer',
-      ':hover':{
-        backgroundColor: 'black',
-        color:'blue'
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
       }
     };
-    let person=null
-    if(this.state.showPerson){
-      person=(
-      <div>
-        {this.state.person.map((p,index)=>{
-          return <Person 
-          click={()=>this.deletePersonHandler(index)}
-          name={p.name} 
-          age={p.age} 
-          key={p.id}
-          changed= {(event)=>this.nameChangedHandler(event, person.id)}
-          />
-        })}
-      
-      </div>
-      )
-      style={
-        backgroundColor:"red",
-        border: '5px solid black',
-      }
-      style[':hover']={
-        background:'green',
-        color:'white'
-      }
+
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          {this.state.persons.map((person, index) => {
+            return (
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                changed={event => this.nameChangedHandler(event, person.id)}
+              />
+            );
+          })}
+        </div>
+      );
+
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor: 'salmon',
+      //   color: 'black'
+      // };
     }
-    //let classes=['red', 'bold'].join(' ')
-    let classes=[]
-    if(this.state.person.length<=2){
-      classes.push('red');
+
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red'); // classes = ['red']
     }
-    if(this.state.person.length<=1){
-      classes.push('bold')
+    if (this.state.persons.length <= 1) {
+      classes.push('bold'); // classes = ['red', 'bold']
     }
 
     return (
       <div className="App">
-        <h1>hi, I am a React app</h1>
-        <p className={classes.join(' ')}>this is working</p>
-        <button style={style}
-        onClick={this.togglePersonHandler} >Switch name</button>
-          {person}
+        <h1>Hi, I'm a React App</h1>
+        <p className={classes.join(' ')}>This is really working!</p>
+        <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>
+          Toggle Persons
+        </StyledButton>
+        {persons}
       </div>
-    )
+    );
+    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
-export default Radium(App);
+export default App;

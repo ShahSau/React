@@ -3,7 +3,7 @@ import './style.css'
 function Navbar() {
     return (
     <div className='Navbar'>
-        Pokemon API
+        The datas are fetched from Pokemon API.
         
     </div>
     )

@@ -6,6 +6,8 @@ import { getAllPokemon, getPokemon } from './services/pokemon';
 import Navbar from './components/Navbar';
 
 
+
+
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [nextUrl, setNextUrl] = useState('');
@@ -54,7 +56,11 @@ function App() {
   console.log(pokemonData)
   return (
     <div>
-     { loading ? <h1>Loading...</h1> : (
+     { loading ? (<div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>) : (
        <>
        <Navbar />
 
@@ -65,8 +71,8 @@ function App() {
 
           </div>
         <div className='btn'> 
-       <button onClick={prev}>Prev</button>
-       <button onClick={next}>Next</button>
+       <button type="button" class="btn btn-primary" onClick={prev}>Prev</button>
+       <button type="button" class="btn btn-primary" onClick={next}>Next</button>
        </div>
        </>
      )}

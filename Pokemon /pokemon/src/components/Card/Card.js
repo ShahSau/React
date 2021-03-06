@@ -3,38 +3,41 @@ import './style.css'
 import pokemonType from '../../helpers/pokemonTypes'
 function Card({ pokemon }) {
     return (
-        <div className= 'Card'>
-            <div className = 'Card__img'>
+        <div className= 'card'>
+            <div className = 'card__img'>
             <img src={ pokemon.sprites.front_default } alt=""></img>
             </div>
-            <div className = 'Card__Name'>
+            <h5 className = 'card-title'>
                 { pokemon.name }
-            </div>
-            <div className = 'Card__types'>
+            </h5>
+            <div className = 'card__types'>
                 { pokemon.types.map(type =>{
                     return (
-                        <div className = 'Card__type' style={{backgroundColor: pokemonType[type.type.name]}}>
+                        <div className = 'card__type' style={{backgroundColor: pokemonType[type.type.name]}}>
                             {type.type.name}
                         </div>
                     )
                 })}
             </div>
-            <div className ='Card__info'>
-                <div className = 'Card__data Card__data--weight'>
-                    <p className='title'>Weight</p>
-                    <p> { pokemon.weight} </p>
+            <div className ='card__info'>
+                <div className = 'card__data'>
+                    <p className='try'>Weight: { pokemon.weight}  </p>
+                    <p className='try'>Height: { pokemon.height} </p>
+                    
                 </div>
 
-                <div className = 'Card__data Card__data--height'>
-                    <p className='title'>Height</p>
-                    <p> { pokemon.height} </p>
+                <div className = 'card__data'>
+                <p className='try'>Order: { pokemon.order} </p>
+                    <p className='try'>base: { pokemon.base_experience} </p>
+                </div>
+                <div className = 'card__data'>
+                    
                 </div>
 
-                <div className = 'Card__data Card__data--ability'>
-                    <p className='title'>Abilities</p>
-                    <p> { pokemon.abilities.map(ability =>{
+                <div className = 'card__data'>
+                    <p className=''>Abilities: { pokemon.abilities.map(ability =>{
                         return (
-                            <p>{ability.ability.name}</p>
+                                <p>{ability.ability.name}</p>
                         )
                     })} </p>
 

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Card from './components/Card'
 import { getAllPokemon, getPokemon } from './services/pokemon';
-
+import Navbar from './components/Navbar';
 
 
 function App() {
@@ -25,6 +25,24 @@ function App() {
 
   }, [] );
 
+  const next = async () =>{
+    setLoading(true);
+    let data = await getAllPokemon(nextUrl)
+    await loadingPokemon(data.results);
+    setNextUrl(data.next)
+    setPrevUrl(data.previous)
+    setLoading(false);
+  }
+  const prev = async () =>{
+    if (!prevUrl) return;
+    setLoading(true);
+    let data = await getAllPokemon(prevUrl)
+    await loadingPokemon(data.results);
+    setNextUrl(data.next)
+    setPrevUrl(data.previous)
+    setLoading(false);
+  }
+
   const loadingPokemon = async (data) => {
     //will take a array of promises and return the array when all the promises have resolved
     let _pokemondata = await Promise.all(data.map(async pokemon =>{
@@ -38,12 +56,18 @@ function App() {
     <div>
      { loading ? <h1>Loading...</h1> : (
        <>
+       <Navbar />
+
         <div className="grid-container">
           {pokemonData.map((pokemon, i) => {
             return <Card key={i} pokemon={pokemon}></Card>;
           })}
 
           </div>
+        <div className='btn'> 
+       <button onClick={prev}>Prev</button>
+       <button onClick={next}>Next</button>
+       </div>
        </>
      )}
     </div>

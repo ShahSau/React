@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import pokemonType from '../../helpers/pokemonTypes'
 function Card({ pokemon }) {
     return (
         <div className= 'Card'>
@@ -12,7 +13,7 @@ function Card({ pokemon }) {
             <div className = 'Card__types'>
                 { pokemon.types.map(type =>{
                     return (
-                        <div className = 'Card__type'>
+                        <div className = 'Card__type' style={{backgroundColor: pokemonType[type.type.name]}}>
                             {type.type.name}
                         </div>
                     )

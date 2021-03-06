@@ -74,6 +74,7 @@ function App() {
        <button type="button" class="btn btn-primary" onClick={prev}>Prev</button>
        <button type="button" class="btn btn-primary" onClick={next}>Next</button>
        </div>
+       <p class='bottom'>Made with ❤ from Helsinki</p>
        </>
      )}
     </div>

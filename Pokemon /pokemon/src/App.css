@@ -161,3 +161,6 @@
   display: -ms-flexbox !important;
   display: flex !important;
 }
+.bottom{
+  text-align: center;
+}

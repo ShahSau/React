@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Search = ({search,handleChange,handleSubmit}) => {
+const Search = ({search,handleChange,handleSubmit,healthChangeV,healthChangeVe,healthChangeP,healthChangeF}) => {
     return (
         <div className='container'>
             <div className='row'>

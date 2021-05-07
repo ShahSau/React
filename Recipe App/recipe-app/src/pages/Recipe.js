@@ -7,6 +7,8 @@ const Recipe= (props) =>{
     const [loading, setLoading] = useState(true)
     const path = props.location.pathname.substring(9)
     console.log(path)
+    const health = props.location.hash.substring(1)
+    console.log(health)
    
 
 
@@ -58,7 +60,7 @@ const Recipe= (props) =>{
                     <> </>
                     <h6 className='text-uppercase'>{recipe.label}</h6>
                     <h6 className='text-warning text-capitalize text-slanted'> Provided by {recipe.source}</h6>
-                    <a href={recipe.url} target='_blank' rel='noopener noreferrer' className='btn btn-success mt-2 mx-2 text-capitalize'> Recipe URL</a>
+                    <a href={recipe.url} target='_blank' rel='noopener noreferrer' className='btn btn-success mt-2 mx-2 text-capitalize'> How to Cook </a>
                     <ul className='list-group mt-4'>
                         <h2 className='mt-3 mb-4'>ingridients</h2>
                         {recipe.ingredientLines.map((item,index)=>{

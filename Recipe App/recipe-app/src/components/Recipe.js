@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
- const Recipe = ({recipe,search}) => {
+ const Recipe = ({recipe,search, health}) => {
 const image_url= recipe.recipe.image
 const title= recipe.recipe.label
 const publisher= recipe.recipe.source

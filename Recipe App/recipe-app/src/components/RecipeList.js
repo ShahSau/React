@@ -1,6 +1,6 @@
 import React from 'react'
 import Recipe from './Recipe'
-const RecipeList = ({recipes}) => {
+const RecipeList = ({recipes, search}) => {
 
     return (
         <>
@@ -11,7 +11,7 @@ const RecipeList = ({recipes}) => {
                 </div>
             </div>
             <div className='row'>
-                {recipes.map(recipe=>(<Recipe key={recipe.uri} recipe={recipe}></Recipe>))}
+                {recipes.map(recipe=>(<Recipe key={recipe.uri} recipe={recipe} search={search}></Recipe>))}
             </div>
         </div>
         </>

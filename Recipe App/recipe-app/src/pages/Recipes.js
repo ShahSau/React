@@ -10,25 +10,27 @@ const Recipes=()=> {
     
   },[])
   const getRecipes = async ()=>{
-    const reponse = await fetch(`https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`)
+    const reponse = await fetch(`https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}&&health=alcohol-free`)
     const data = await reponse.json()
+
     setRecipes(data.hits)
-    //console.log(data)
-    
+    console.log(data.hits)
  
   }
-    
-    const [search, setSearch]= useState('')
+    const [search, setSearch]= useState('chicken')
     const handleChange =(event)=>{
         setSearch(event.target.value)
+     
     }
     const handleSubmit = (event)=>{
         event.preventDefault()
+        getRecipes()
     }
+    
     return (
         <>
             <Search search={search} handleChange={handleChange} handleSubmit={handleSubmit}/>
-            <RecipeList recipes={recipes}/>
+            <RecipeList recipes={recipes} search={search}/>
         </>
     )
 }

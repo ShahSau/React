@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react'
 import {Link } from 'react-router-dom'
 const Recipe= (props) =>{
     console.log(props)
-    const id =props.location.hash
+    const id =props.location.state
     const [ recipe, setRecipe] = useState([])
     const [loading, setLoading] = useState(true)
-    
-
+    const path = props.location.pathname.substring(9)
+    console.log(path)
+   
 
 
 
@@ -17,12 +18,11 @@ const Recipe= (props) =>{
     
   },[])
   const getRecipes = async ()=>{
-    const reponse = await fetch(`https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`)
+    const reponse = await fetch(`https://api.edamam.com/search?q=${id}&app_id=${APP_ID}&app_key=${APP_KEY}`)
     const data = await reponse.json()
-    let filter_recipe = await data.hits.find((r)=>  r.recipe.uri.includes(id))
+    let filter_recipe = await data.hits.find((r)=>  r.recipe.uri.includes(path))
     setRecipe(filter_recipe.recipe)
     setLoading(false)
-
   }
 
         
@@ -41,6 +41,9 @@ const Recipe= (props) =>{
             </div>
         </div>)
     }
+    
+    
+    
     return (
         <div className='container my-5'>
             <Link to='/recipes' className='btn btn-warning mb-5 text-capitalize'>
@@ -55,7 +58,7 @@ const Recipe= (props) =>{
                     <> </>
                     <h6 className='text-uppercase'>{recipe.label}</h6>
                     <h6 className='text-warning text-capitalize text-slanted'> Provided by {recipe.source}</h6>
-                    <a href={recipe.source_url} target='_blank' rel='noopener noreferrer' className='btn btn-success mt-2 mx-2 text-capitalize'> Recipe URL</a>
+                    <a href={recipe.url} target='_blank' rel='noopener noreferrer' className='btn btn-success mt-2 mx-2 text-capitalize'> Recipe URL</a>
                     <ul className='list-group mt-4'>
                         <h2 className='mt-3 mb-4'>ingridients</h2>
                         {recipe.ingredientLines.map((item,index)=>{

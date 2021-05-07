@@ -1,11 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
- const Recipe = ({recipe}) => {
+ const Recipe = ({recipe,search}) => {
 const image_url= recipe.recipe.image
 const title= recipe.recipe.label
 const publisher= recipe.recipe.source
 const source_url= recipe.recipe.url
-const recipe_id =recipe.recipe.uri
+const recipe_id =recipe.recipe.uri.substring(50)
 console.log(recipe_id)
 //image_url, title, source_url, publisher, recipe_id
     return (
@@ -19,7 +19,7 @@ console.log(recipe_id)
                     </h6>
                 </div>
                 <div className='card-footer'>
-                    <Link to={`/recipes/${recipe_id}`} className='btn btn-primary text-capitalize'> Details</Link>
+                    <Link to={{pathname:`/recipes/${recipe_id}`, state: search}} className='btn btn-primary text-capitalize'> Details</Link>
                     <a href={source_url} target='_blank' rel='noopener noreferrer' className='btn btn-success mx-2 text-capitalize'> Recipe URL</a>
                 </div>
             </div>

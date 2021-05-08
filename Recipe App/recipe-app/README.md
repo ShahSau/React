@@ -1,4 +1,5 @@
-This website was build using recipe API from edamam (https://developer.edamam.com/edamam-docs-recipe-api)
+This website was build using recipe API from Edamam https://developer.edamam.com/edamam-docs-recipe-api
+<a href="https://www.w3schools.com">Visit W3Schools.com!</a>
 Techonologies used: React, React Route, Bootstrap, REST API.
 
 

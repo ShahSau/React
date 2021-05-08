@@ -1,4 +1,4 @@
-This website was build using recipe API from  <a href="https://developer.edamam.com/edamam-docs-recipe-api">Edamam </a>
+This website was build using recipe API from  <a href="https://developer.edamam.com/edamam-docs-recipe-api">Edamam </a>. 
 Techonologies used: React, React Route, Bootstrap, REST API.
 
 

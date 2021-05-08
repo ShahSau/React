@@ -1,13 +1,19 @@
 body{
   
   font-family: 'Roboto', sans-serif!important;
+  background-color:#9EDDB8!important;
+  /* color:#EF876B!important; */
+  color: #49164a!important;
 }
 .text-slanted{
   font-family: 'Courgette', cursive!important;
 }
+.card-color{
+  background-color: #C1DABD!important;
+}
 
 .text-blue{
-  color:#20c997;
+  color:blue;
 }
 
 .letter-spacing{
@@ -22,4 +28,45 @@ body{
   min-height: calc(100vh - 56px);
   background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('./images/defaultBG.jpeg') center/cover no-repeat;
 }
+.scale-in-center {
+  -webkit-animation: scale-in-center 1.5s cubic-bezier(0.250,
+  0.460, 0.450, 0.940) 1s both;
+  animation: scale-in-center 1.5s cubic-bezier(0.250, 0.460,
+  0.450, 0.940) 1s both;
+}
+.text-second{
+  color:black;
+}
 
+@keyframes scale-in-center {
+  0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+  }
+  100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+.scale-in-back {
+  -webkit-animation: scale-in-back 1.85s cubic-bezier(0.250,
+  0.460, 0.450, 0.940) 1s both;
+  animation: scale-in-back 1.85s cubic-bezier(0.250, 0.460,
+  0.450, 0.940) 1s both;
+}
+
+@keyframes scale-in-back {
+  0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+  }
+  100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+  }
+}

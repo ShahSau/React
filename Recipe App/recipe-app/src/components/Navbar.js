@@ -10,12 +10,12 @@ const Navbar= () => {
             <div className='collapse navbar-collapse show ml-sm-5'>
                 <ul className='navbar-nav'>
                     <li className='navbar-item'>
-                        <Link className='nav-link' to='/'>
+                        <Link className='nav-link text-second text-slanted' to='/'>
                             Home
                         </Link>
                     </li>
                     <li className='navbar-item'>
-                        <Link className='nav-link' to='/recipes'>
+                        <Link className='nav-link text-slanted' to='/recipes'>
                             Recipes
                         </Link>
                     </li>

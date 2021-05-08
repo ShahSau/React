@@ -3,10 +3,9 @@ import RecipeList from '../components/RecipeList'
 import Search from '../components/Search'
 
 const Recipes=()=> {
-    const APP_ID= '9f910e7b'
-    const APP_KEY= '543491186020f922e225c915a71c611c'
-    // const APP_ID = process.env.REACT_APP_APP_ID
-    // const APP_KEY = process.env.REACT_APP_APP_KEY
+    
+    const APP_ID = process.env.REACT_APP_APP_ID
+    const APP_KEY = process.env.REACT_APP_APP_KEY
     const [recipes, setRecipes]= useState([])
     const [search, setSearch]= useState('chicken,onion')
     useEffect( () => {

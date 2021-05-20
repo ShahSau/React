@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 
 const App = () => {
@@ -26,13 +26,27 @@ const App = () => {
       color: "Black",
     },
   ]);
-  console.log(products);
+  const [index, setIndex] = useState(0)
+  const myRef = useRef();
+  const handleEvent=(index)=>{
+    setIndex(index)
+    const images = myRef.current.children
+    for(let i=0; i< images.length; i++){
+      images[i].className = images[i].className.replace('active', '')
+    }
+    images[index].className = 'active'
+  }
+
+  useEffect( ()=> {
+    myRef.current.children[index].className='active'
+  })
+  
   return (
     <div className="app">
       {products.map((product) => (
         <div className="details" key={product.id}>
           <div className="big-img">
-            <img src={product.src[0]} alt="" />
+            <img src={product.src[index]} alt="" />
           </div>
 
           <div className="box">
@@ -40,17 +54,19 @@ const App = () => {
               <h2>{product.title}</h2>
               <span>€ {product.price}</span>
             </div>
-            <div>{product.color}</div>
+            <div>Avaliable in color: {product.color}</div>
             <p>{product.description}</p>
             <ul>
               {product.content.map((des,index) => (
                 <li key={index}>{des}</li>
               ))}
             </ul>
-            <div className='thumb'> 
+            <div className='thumb' ref={myRef}> 
                 {
                   product.src.map((img,index)=>(
-                    <img key={index} src={img} alt=''></img>
+                    <img key={index} src={img} alt='' 
+                    onClick={()=>handleEvent(index)}
+                    />
                   ))
                 }
              </div>

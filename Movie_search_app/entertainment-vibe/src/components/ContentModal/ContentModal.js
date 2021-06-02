@@ -4,6 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import axios from "axios";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {
   img_500,
   unavailable,
@@ -91,6 +92,7 @@ export default function TransitionsModal({ children, media_type, id }) {
           timeout: 500,
         }}
       >
+        
         <Fade in={open}>
           {content && (
             <div className={classes.paper}>

@@ -17,13 +17,15 @@ const HeaderStyled = styled.section`
   display: flex;
   justify-content: center;
   text-transform: uppercase;
-  background-color: #39445a;
+  background-color: #2d313a;
   font-family: "Roboto", sans-serif;
-  font-size: 5vw;
+  font-size: 2.5vw;
   padding-bottom: 15px;
   box-shadow: 0px 1px 5px black;
-  color: white;
+  // color: white;
   z-index: 100;
+  // color:#D79B6B;
+  color:#D96452;
 }
 
 @media (max-width: 1000px) {
@@ -32,6 +34,5 @@ const HeaderStyled = styled.section`
     font-size: 6.4vw;
   }
 }
-
 `
 export default Header;

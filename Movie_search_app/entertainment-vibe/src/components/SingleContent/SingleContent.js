@@ -25,12 +25,15 @@ const SingleContent = ({
         src={poster ? `${img_300}${poster}` : unavailable}
         alt={title}
       />
+      <span className="click">Click on card for details</span>
       <b className="title">{title}</b>
       <span className="subTitle">
         {media_type === "tv" ? "TV Series" : "Movie"}
         <span className="subTitle">{date}</span>
       </span>
+      
     </ContentModal>
+    
     </SingleStyled>
   );
 };
@@ -42,14 +45,15 @@ const SingleStyled = styled.section`
   padding: 5px;
   margin: 5px 0;
   background-color: #282c34;
+  color:#D79B6B;
   border-radius: 10px;
   position: relative;
   font-family: "Roboto", sans-serif;
 }
 
 .media:hover {
-  background-color: white;
-  color: black;
+  background-color: #48607C;
+  color:#E3D690;
   transform: scale(1.05);
   transition: transform 0.5s;
   z-index: 99;

@@ -4,8 +4,10 @@
 
 .app {
   min-height: 100vh;
-  background-color: #39445a;
-  color: white;
+  /* background-color: #39445a; 
+  color: white; */
+  background-color: #538061;
+  color:#D79B6B;
   padding-top: 130px;
   padding-bottom: 70px;
 }
@@ -21,10 +23,11 @@
   display: flex;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
-  font-size: 2vw;
-  padding: 4px;
+  font-size: 1.75vw;
+  padding-bottom: 15px;
   border-radius: 50px;
-  color: white;
+  color:#000;
+
 }
 
 @media (max-width: 1000px) {

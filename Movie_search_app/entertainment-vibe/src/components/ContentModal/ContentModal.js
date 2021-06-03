@@ -23,10 +23,12 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     width: "90%",
     height: "80%",
-    backgroundColor: "#39445a",
+    // backgroundColor: "#39445a",
     border: "1px solid #282c34",
     borderRadius: 10,
-    color: "white",
+    // color: "white",
+    color:'#000',
+    backgroundColor: '#538061',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(1, 1, 3),
   },
@@ -145,7 +147,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                     target="__blank"
                     href={`https://www.youtube.com/watch?v=${video}`}
                   >
-                    Watch the Trailer
+                    
                   </Button>
                 </div>
               </div>

@@ -26,7 +26,7 @@ import {
       palette: {
         type: "dark",
         primary: {
-          main: "#fff",
+          main: "#2A253B",
         },
       },
     });
@@ -103,7 +103,7 @@ import {
           {searchText &&
             noContent === 1 &&
             content.length ===0 &&
-             (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)
+             (type ? <h2>Oops! No Series Found</h2> : <h2>Oops! No Movies Found</h2>)
           }
         </div>
         {numOfPages > 1 && (
@@ -118,12 +118,17 @@ import {
   .search {
     display: flex;
     margin: 15px 0;
+    color:#E3D690;
   }  
   .trending {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     font-family: "Roboto", sans-serif;
+    
+  }
+  .searchBox{
+    color:#E3D690;
   }
   `
   export default Search;

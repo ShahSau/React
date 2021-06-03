@@ -63,7 +63,10 @@
 .ContentModal__description::-webkit-scrollbar {
   display: none;
 }
-
+.Youtube{
+  color:black;
+  font-family: "RobotoMono"
+}
 @media (min-width: 835px) {
   .ContentModal__landscape {
     display: none;

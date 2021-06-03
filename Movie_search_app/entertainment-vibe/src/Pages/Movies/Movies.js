@@ -67,6 +67,7 @@ const MoviesPageStyled = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    font-family: "Roboto", sans-serif;
   }
   `
 export default Movies;

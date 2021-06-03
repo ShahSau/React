@@ -20,6 +20,7 @@ import {
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState();
+    const [noContent, setNoContent] = useState(0);
   
     const darkTheme = createMuiTheme({
       palette: {
@@ -37,6 +38,7 @@ import {
         );
         setContent(data.results);
         setNumOfPages(data.total_pages);
+        setNoContent(1)
         // console.log(data);
       } catch (error) {
         console.error(error);
@@ -97,9 +99,12 @@ import {
                 vote_average={c.vote_average}
               />
             ))}
+            {console.log(searchText)}
           {searchText &&
-            !content &&
-            (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
+            noContent === 1 &&
+            content.length ===0 &&
+             (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)
+          }
         </div>
         {numOfPages > 1 && (
           <CustomPagination setPage={setPage} numOfPages={numOfPages} />
@@ -118,6 +123,7 @@ import {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    font-family: "Roboto", sans-serif;
   }
   `
   export default Search;

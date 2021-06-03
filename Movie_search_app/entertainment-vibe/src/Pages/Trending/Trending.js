@@ -50,6 +50,7 @@ const TrendPageStyled = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  font-family: "Roboto", sans-serif;
 }  
   `
 export default Trending;

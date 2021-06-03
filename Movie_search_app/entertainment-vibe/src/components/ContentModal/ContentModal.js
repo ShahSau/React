@@ -106,6 +106,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                   alt={content.name || content.title}
                   className="ContentModal__portrait"
                 />
+                
                 <img
                   src={
                     content.backdrop_path

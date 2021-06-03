@@ -2,6 +2,8 @@ import { Badge } from "@material-ui/core";
 import { img_300, unavailable } from "../../config/config";
 import ContentModal from "../ContentModal/ContentModal";
 import styled from 'styled-components';
+
+
 const SingleContent = ({
   id,
   poster,
@@ -16,7 +18,7 @@ const SingleContent = ({
     <ContentModal media_type={media_type} id={id}>
       <Badge
         badgeContent={vote_average}
-        color={vote_average > 6 ? "primary" : "secondary"}
+        color={vote_average < 4 ? "secondary" : vote_average < 8 ? "error" : "primary"}
       />
       <img
         className="poster"
@@ -48,6 +50,10 @@ const SingleStyled = styled.section`
 .media:hover {
   background-color: white;
   color: black;
+  transform: scale(1.05);
+  transition: transform 0.5s;
+  z-index: 99;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media (max-width: 550px) {

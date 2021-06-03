@@ -4,6 +4,7 @@ import Genres from "../../components/Genres/Genres";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import useGenre from "../../hooks/useGenre";
 import CustomPagination from "../../components/Pagination/CustomPagination";
+import styled from 'styled-components';
 
 const Movies = () => {
   const [genres, setGenres] = useState([]);
@@ -29,6 +30,7 @@ const Movies = () => {
   }, [genreforURL, page]);
 
   return (
+    <MoviesPageStyled>
     <div>
       <span className="pageTitle">Discover Movies</span>
       <Genres
@@ -57,7 +59,14 @@ const Movies = () => {
         <CustomPagination setPage={setPage} numOfPages={numOfPages} />
       )}
     </div>
+    </MoviesPageStyled>
   );
 };
-
+const MoviesPageStyled = styled.section`  
+  .trending {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  `
 export default Movies;

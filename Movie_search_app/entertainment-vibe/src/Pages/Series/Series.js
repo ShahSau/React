@@ -4,7 +4,7 @@ import Genres from "../../components/Genres/Genres";
 import CustomPagination from "../../components/Pagination/CustomPagination";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import useGenre from "../../hooks/useGenre";
-
+import styled from 'styled-components';
 const Series = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -29,6 +29,7 @@ const Series = () => {
   }, [genreforURL, page]);
 
   return (
+    <SeriesPageStyled>
     <div>
       <span className="pageTitle">Discover Series</span>
       <Genres
@@ -57,7 +58,15 @@ const Series = () => {
         <CustomPagination setPage={setPage} numOfPages={numOfPages} />
       )}
     </div>
+    </SeriesPageStyled>
   );
 };
+const SeriesPageStyled = styled.section`
+.trending {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}  
+  `
 
 export default Series;

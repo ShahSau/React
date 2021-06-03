@@ -1,8 +1,8 @@
 import axios from "axios";
-import "./Trending.css";
 import { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import CustomPagination from "../../components/Pagination/CustomPagination";
+import styled from 'styled-components';
 
 const Trending = () => {
   const [page, setPage] = useState(1);
@@ -23,6 +23,7 @@ const Trending = () => {
   }, [page]);
 
   return (
+    <TrendPageStyled>
     <div>
       <span className="pageTitle">Trending Today</span>
       <div className="trending">
@@ -41,7 +42,14 @@ const Trending = () => {
       </div>
       <CustomPagination setPage={setPage} />
     </div>
+    </TrendPageStyled>
   );
 };
-
+const TrendPageStyled = styled.section`
+.trending {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}  
+  `
 export default Trending;

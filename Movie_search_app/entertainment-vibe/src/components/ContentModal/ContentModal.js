@@ -4,17 +4,16 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import axios from "axios";
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {
   img_500,
   unavailable,
   unavailableLandscape,
 } from "../../config/config";
-import "./ContentModal.css";
+import  "./ContentModal.css";
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Carousel from "../Carousel/Carousel";
-
+import styled from 'styled-components';
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -72,6 +71,7 @@ export default function TransitionsModal({ children, media_type, id }) {
 
   return (
     <>
+    
       <div
         className="media"
         style={{ cursor: "pointer" }}
@@ -80,6 +80,7 @@ export default function TransitionsModal({ children, media_type, id }) {
       >
         {children}
       </div>
+      
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -92,7 +93,6 @@ export default function TransitionsModal({ children, media_type, id }) {
           timeout: 500,
         }}
       >
-        
         <Fade in={open}>
           {content && (
             <div className={classes.paper}>

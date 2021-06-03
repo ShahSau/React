@@ -6,13 +6,14 @@ import {
     TextField,
     ThemeProvider,
   } from "@material-ui/core";
-  import "./Search.css";
+
   import SearchIcon from "@material-ui/icons/Search";
   import { useEffect, useState } from "react";
   import axios from "axios";
   import CustomPagination from "../../components/Pagination/CustomPagination";
   import SingleContent from "../../components/SingleContent/SingleContent";
-  
+  import styled from 'styled-components';
+
   const Search = () => {
     const [type, setType] = useState(0);
     const [searchText, setSearchText] = useState("");
@@ -49,6 +50,7 @@ import {
     }, [type, page]);
   
     return (
+      <SearchPageStyled>
       <div>
         <ThemeProvider theme={darkTheme}>
           <div className="search">
@@ -103,7 +105,19 @@ import {
           <CustomPagination setPage={setPage} numOfPages={numOfPages} />
         )}
       </div>
+      </SearchPageStyled>
     );
   };
   
+  const SearchPageStyled = styled.section`
+  .search {
+    display: flex;
+    margin: 15px 0;
+  }  
+  .trending {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  `
   export default Search;

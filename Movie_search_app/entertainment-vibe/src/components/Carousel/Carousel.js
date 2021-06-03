@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { img_300, noPicture } from "../../config/config";
-import "./Carousel.css";
+import styled from 'styled-components';
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -47,6 +47,7 @@ const Gallery = ({ id, media_type }) => {
   }, []);
 
   return (
+    <CarouselStyled>
     <AliceCarousel
       mouseTracking
       infinite
@@ -56,7 +57,20 @@ const Gallery = ({ id, media_type }) => {
       items={items}
       autoPlay
     />
+    </CarouselStyled>
   );
 };
-
+const CarouselStyled = styled.section`
+.carouselItem {
+  display: flex;
+  flex-direction: column;
+  object-fit: contain;
+  padding: 10px;
+}
+.carouselItem__img {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  box-shadow: 0px 0px 5px black;
+}
+`;
 export default Gallery;

@@ -117,6 +117,7 @@ export function BookCard() {
     setReturnCalendarOpen(!isReturnCalendarOpen);
     if (isStartCalendarOpen) setStartCalendarOpen(false);
   };
+  
 
   return (
     <CardContainer>
@@ -154,7 +155,7 @@ export function BookCard() {
         )}
       </ItemContainer>
       <Marginer direction="horizontal" margin="2em" />
-      <Button text="Book Your Ride" />
+      <Button text="Book Your Ride"/>
     </CardContainer>
   );
 }

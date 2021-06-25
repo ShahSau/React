@@ -147,7 +147,7 @@ import {
     return (
       <CarContainer>
         <CarThumbnail>
-          <img src={thumbnailSrc} />
+          <img alt="car" src={thumbnailSrc} />
         </CarThumbnail>
         <CarName>{name}</CarName>
         <PricesContainer>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Car } from "../../components/car";
@@ -7,6 +7,7 @@ import Carousel, { Dots, slidesToShowPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { useMediaQuery } from "react-responsive";
 import { SCREENS } from "../../components/responsive";
+import Car2 from "../../../assets/images/chr.png"
 
 
 const TopCarsContainer = styled.div`
@@ -45,34 +46,33 @@ const CarsContainer = styled.div`
   `};
 `;
 
-const EmptyCars = styled.div`
-  ${tw`
-    w-full
-    flex
-    justify-center
-    items-center
-    text-sm
-    text-gray-500
-  `};
-`;
+// const EmptyCars = styled.div`
+//   ${tw`
+//     w-full
+//     flex
+//     justify-center
+//     items-center
+//     text-sm
+//     text-gray-500
+//   `};
+// `;
 
-const LoadingContainer = styled.div`
-  ${tw`
-    w-full
-    mt-9
-    flex
-    justify-center
-    items-center
-    text-base
-    text-black
-  `};
-`;
+// const LoadingContainer = styled.div`
+//   ${tw`
+//     w-full
+//     mt-9
+//     flex
+//     justify-center
+//     items-center
+//     text-base
+//     text-black
+//   `};
+// `;
 
 const testCar: ICar = {
   name: "Audi S3 Car",
   mileage: "10k",
-  thumbnailSrc:
-    "https://cdn.jdpower.com/Models/640x480/2017-Audi-S3-PremiumPlus.jpg",
+  thumbnailSrc:"https://cdn.jdpower.com/Models/640x480/2017-Audi-S3-PremiumPlus.jpg",
   dailyPrice: 70,
   monthlyPrice: 1600,
   gearType: "Auto",
@@ -82,27 +82,93 @@ const testCar: ICar = {
 const testCar2: ICar = {
   name: "HONDA cITY 5 Seater Car",
   mileage: "20k",
-  thumbnailSrc:
-    "https://shinewiki.com/wp-content/uploads/2019/11/honda-city.jpg",
+  thumbnailSrc: "https://shinewiki.com/wp-content/uploads/2019/11/honda-city.jpg",
   dailyPrice: 50,
   monthlyPrice: 1500,
   gearType: "Auto",
   gas: "Petrol",
 };
 
+const testCar3: ICar = {
+  name: "Toyota CHR hybrid",
+  mileage: "30k",
+  thumbnailSrc: "https://m.atcdn.co.uk/a/media/w800h600/fa5c6bf37b294855aeb62c604179981d.jpg",
+  dailyPrice: 40,
+  monthlyPrice: 1200,
+  gearType: "Auto",
+  gas: "Petrol",
+};
+const testCar4: ICar = {
+  name: "Audi RS6 Avant",
+  mileage: "20k",
+  thumbnailSrc: "https://m.atcdn.co.uk/a/media/w800h600/e7e8f8e0ab8943828d8db568475ee577.jpg",
+  dailyPrice: 60,
+  monthlyPrice: 1800,
+  gearType: "Auto",
+  gas: "Petrol",
+};
+const testCar5: ICar = {
+  name: "Citroen C3 Aircross",
+  mileage: "25k",
+  thumbnailSrc: "https://m.atcdn.co.uk/a/media/w800h600/6bb644a60ca8483fa79b7d442a7f96ed.jpg",
+  dailyPrice: 60,
+  monthlyPrice: 1800,
+  gearType: "Manual",
+  gas: "Petrol",
+};
+const testCar6: ICar = {
+  name: "Audi RS6 Avant",
+  mileage: "20k",
+  thumbnailSrc: "https://m.atcdn.co.uk/a/media/w800h600/57c06293367947c88e27030c80245a16.jpg",
+  dailyPrice: 20,
+  monthlyPrice: 500,
+  gearType: "Manual",
+  gas: "Petrol",
+};
+const testCar7: ICar = {
+  name: "BMW 3",
+  mileage: "20k",
+  thumbnailSrc: "https://m.atcdn.co.uk/a/media/w800h600/0077036b3cc047d79d69695737b311a1.jpg",
+  dailyPrice: 60,
+  monthlyPrice: 1800,
+  gearType: "Auto",
+  gas: "Petrol",
+};
+const testCar8: ICar = {
+  name: "Mercedes-Benz E-Class Saloon",
+  mileage: "20k",
+  thumbnailSrc: "https://m.atcdn.co.uk/a/media/w800h600/31debb14194044f6bdbc8b408dbb6199.jpg",
+  dailyPrice: 60,
+  monthlyPrice: 1800,
+  gearType: "Auto",
+  gas: "Petrol",
+};
+const testCar9: ICar = {
+  name: "A RS6 Avant",
+  mileage: "20k",
+  thumbnailSrc: "https://m.atcdn.co.uk/a/media/w800h600/e7e8f8e0ab8943828d8db568475ee577.jpg",
+  dailyPrice: 60,
+  monthlyPrice: 1800,
+  gearType: "Auto",
+  gas: "Petrol",
+};
 export function TopCars(){
   const [current, setCurrent] = useState(0);
-  const [isLoading, setLoading] = useState(false);
+  
   const isMobile = useMediaQuery({ maxWidth: SCREENS.sm });
 
   const cars =[
           <Car {...testCar}/>, 
           <Car {...testCar2}/>, 
-          <Car {...testCar}/>, 
-          <Car {...testCar2}/>, 
-          <Car {...testCar}/>
+          <Car {...testCar3}/>, 
+          <Car {...testCar4}/>, 
+          <Car {...testCar5}/>,
+          <Car {...testCar6}/>,
+          <Car {...testCar7}/>,
+          <Car {...testCar8}/>,
+          <Car {...testCar9}/>,
   ]
-  const numberOfDots = isMobile ? cars.length : Math.ceil(cars.length / 3);
+  const numberOfDots = isMobile ? cars.length : Math.ceil(cars.length - 2);
   
   return <TopCarsContainer>
     <Title>Explore Our Top Deals</Title>

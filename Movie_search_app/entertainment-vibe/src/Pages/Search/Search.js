@@ -61,6 +61,7 @@ import {
               className="searchBox"
               label="Search"
               variant="filled"
+              color="#000"
               onChange={(e) => setSearchText(e.target.value)}
             />
             <Button
@@ -74,7 +75,6 @@ import {
           <Tabs
             value={type}
             indicatorColor="primary"
-            textColor="primary"
             onChange={(event, newValue) => {
               setType(newValue);
               setPage(1);
@@ -118,7 +118,7 @@ import {
   .search {
     display: flex;
     margin: 15px 0;
-    color:#E3D690;
+    color:#000 !important;
   }  
   .trending {
     display: flex;
@@ -128,7 +128,9 @@ import {
     
   }
   .searchBox{
-    color:#E3D690;
+    // background-color:#E3D690;
+    color:#000 !important;
+    font-weight: bolder;
   }
   `
   export default Search;

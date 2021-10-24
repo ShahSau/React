@@ -9,11 +9,11 @@ import {
   unavailable,
   unavailableLandscape,
 } from "../../config/config";
-import  "./ContentModal.css";
+import "./ContentModal.css";
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Carousel from "../Carousel/Carousel";
-import styled from 'styled-components';
+import styled from "styled-components";
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #282c34",
     borderRadius: 10,
     // color: "white",
-    color:'#000',
-    backgroundColor: '#538061',
+    color: "#000",
+    backgroundColor: "#538061",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(1, 1, 3),
   },
@@ -73,7 +73,6 @@ export default function TransitionsModal({ children, media_type, id }) {
 
   return (
     <>
-    
       <div
         className="media"
         style={{ cursor: "pointer" }}
@@ -82,7 +81,7 @@ export default function TransitionsModal({ children, media_type, id }) {
       >
         {children}
       </div>
-      
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -108,7 +107,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                   alt={content.name || content.title}
                   className="ContentModal__portrait"
                 />
-                
+
                 <img
                   src={
                     content.backdrop_path
@@ -146,9 +145,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                     color="secondary"
                     target="__blank"
                     href={`https://www.youtube.com/watch?v=${video}`}
-                  >
-                    
-                  </Button>
+                  ></Button>
                 </div>
               </div>
             </div>

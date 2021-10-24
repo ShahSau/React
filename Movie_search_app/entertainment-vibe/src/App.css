@@ -6,8 +6,8 @@
   min-height: 100vh;
   /* background-color: #39445a; 
   color: white; */
-  background-color:#766B67; 
-  color:#000;
+  background-color: #766b67;
+  color: #000;
   padding-top: 130px;
   padding-bottom: 70px;
 }
@@ -26,8 +26,7 @@
   font-size: 1.75vw;
   padding-bottom: 15px;
   border-radius: 50px;
-  color:#000;
-
+  color: #000;
 }
 
 @media (max-width: 1000px) {

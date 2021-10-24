@@ -4,7 +4,7 @@ import Genres from "../../components/Genres/Genres";
 import CustomPagination from "../../components/Pagination/CustomPagination";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import useGenre from "../../hooks/useGenre";
-import styled from 'styled-components';
+import styled from "styled-components";
 const Series = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -30,44 +30,44 @@ const Series = () => {
 
   return (
     <SeriesPageStyled>
-    <div>
-      <span className="pageTitle">Discover Series</span>
-      <Genres
-        type="tv"
-        selectedGenres={selectedGenres}
-        setSelectedGenres={setSelectedGenres}
-        genres={genres}
-        setGenres={setGenres}
-        setPage={setPage}
-      />
-      <div className="trending">
-        {content &&
-          content.map((c) => (
-            <SingleContent
-              key={c.id}
-              id={c.id}
-              poster={c.poster_path}
-              title={c.title || c.name}
-              date={c.first_air_date || c.release_date}
-              media_type="tv"
-              vote_average={c.vote_average}
-            />
-          ))}
+      <div>
+        <span className="pageTitle">Discover Series</span>
+        <Genres
+          type="tv"
+          selectedGenres={selectedGenres}
+          setSelectedGenres={setSelectedGenres}
+          genres={genres}
+          setGenres={setGenres}
+          setPage={setPage}
+        />
+        <div className="trending">
+          {content &&
+            content.map((c) => (
+              <SingleContent
+                key={c.id}
+                id={c.id}
+                poster={c.poster_path}
+                title={c.title || c.name}
+                date={c.first_air_date || c.release_date}
+                media_type="tv"
+                vote_average={c.vote_average}
+              />
+            ))}
+        </div>
+        {numOfPages > 1 && (
+          <CustomPagination setPage={setPage} numOfPages={numOfPages} />
+        )}
       </div>
-      {numOfPages > 1 && (
-        <CustomPagination setPage={setPage} numOfPages={numOfPages} />
-      )}
-    </div>
     </SeriesPageStyled>
   );
 };
 const SeriesPageStyled = styled.section`
-.trending {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  color:#000;
-}  
-  `
+  .trending {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: #000;
+  }
+`;
 
 export default Series;

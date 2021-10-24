@@ -1,13 +1,16 @@
-import React from 'react'
-import Header from '../components/Header'
-import {Link} from 'react-router-dom'
+import React from "react";
+import Header from "../components/Header";
+import { Link } from "react-router-dom";
 const Home = () => {
-    return (
-        <Header title='feeling hungry'>
-            <Link to='/recipes' className='text-uppercase btn btn-secondary btn-lg mt-3 scale-in-back'>
-                Search recipes
-            </Link>
-        </Header>
-    )
-}
-export default Home
+  return (
+    <Header title="feeling hungry">
+      <Link
+        to="/recipes"
+        className="text-uppercase btn btn-secondary btn-lg mt-3 scale-in-back"
+      >
+        Search recipes
+      </Link>
+    </Header>
+  );
+};
+export default Home;

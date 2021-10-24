@@ -26,21 +26,21 @@ const App = () => {
       color: "Black",
     },
   ]);
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
   const myRef = useRef();
-  const handleEvent=(index)=>{
-    setIndex(index)
-    const images = myRef.current.children
-    for(let i=0; i< images.length; i++){
-      images[i].className = images[i].className.replace('active', '')
+  const handleEvent = (index) => {
+    setIndex(index);
+    const images = myRef.current.children;
+    for (let i = 0; i < images.length; i++) {
+      images[i].className = images[i].className.replace("active", "");
     }
-    images[index].className = 'active'
-  }
+    images[index].className = "active";
+  };
 
-  useEffect( ()=> {
-    myRef.current.children[index].className='active'
-  })
-  
+  useEffect(() => {
+    myRef.current.children[index].className = "active";
+  });
+
   return (
     <div className="app">
       {products.map((product) => (
@@ -57,20 +57,21 @@ const App = () => {
             <div>Avaliable in color: {product.color}</div>
             <p>{product.description}</p>
             <ul>
-              {product.content.map((des,index) => (
+              {product.content.map((des, index) => (
                 <li key={index}>{des}</li>
               ))}
             </ul>
-            <div className='thumb' ref={myRef}> 
-                {
-                  product.src.map((img,index)=>(
-                    <img key={index} src={img} alt='' 
-                    onClick={()=>handleEvent(index)}
-                    />
-                  ))
-                }
-             </div>
-             <button className='cart'>Add to cart</button>
+            <div className="thumb" ref={myRef}>
+              {product.src.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt=""
+                  onClick={() => handleEvent(index)}
+                />
+              ))}
+            </div>
+            <button className="cart">Add to cart</button>
           </div>
         </div>
       ))}

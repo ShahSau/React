@@ -6,7 +6,7 @@ import tw from "twin.macro";
 import { Logo } from "../logo";
 
 const FooterContainer = styled.div`
-//   min-height: 24em;
+  //   min-height: 24em;
   background-color: #1d2124;
   ${tw`
     flex
@@ -155,8 +155,8 @@ export function Footer() {
     <FooterContainer>
       <InnerContainer>
         <AboutContainer>
-          <Logo color="white" bgColor="dark" />  
-          
+          <Logo color="white" bgColor="dark" />
+
           <AboutText>
             Yourcar is a Car renting and selling company located in many
             countries across the world which has high quality cars and top rated
@@ -222,7 +222,7 @@ export function Footer() {
           </HorizontalContainer>
         </SectionContainer>
       </InnerContainer>
-      
+
       <BottomContainer>
         <CopyrightText>
           Copyright &copy; {new Date().getFullYear()} Yourcar. All rights

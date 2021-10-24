@@ -18,7 +18,7 @@ router.post(
   "/upload",
   auth,
   authAdmin,
-  upload.array("image",5),
+  upload.array("image", 5),
   async (req, res) => {
     try {
       // const file = req.files.file;
@@ -48,4 +48,4 @@ router.post(
     }
   }
 );
-module.exports = router
+module.exports = router;

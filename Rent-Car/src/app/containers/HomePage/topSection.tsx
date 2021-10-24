@@ -55,7 +55,6 @@ const Slogan = styled.h1`
   `};
 `;
 
-
 const Description = styled.p`
   ${tw`
     text-xs
@@ -67,7 +66,6 @@ const Description = styled.p`
     text-gray-800
   `};
 `;
-
 
 const BlobContainer = styled.div`
   width: 20em;
@@ -105,8 +103,6 @@ const BlobContainer = styled.div`
   }
 `;
 
-
-
 const StandaloneCar = styled.div`
   width: auto;
   height: 10em;
@@ -143,29 +139,29 @@ const ButtonsContainer = styled.div`
   `};
 `;
 
-export function TopSection(){
-    return (
-        <TopSectionContainer>
-          <LeftContainer>
-            <Slogan>Rent The Best Quality Car's With Us</Slogan>
-            <Description>
-              Always choose the best car from our local stores or order it remotely
-              at the best price for you and get the best quality cars for as long as
-              you like
-            </Description>
-            <ButtonsContainer>
-              <Button text="Book Your Ride" />
-              <Button theme="filled" text="Sell Your Car" />
-            </ButtonsContainer>
-          </LeftContainer>
-          <RightContainer>
-            <BlobContainer>
-              <img alt="blob"src={BlobImg} />
-            </BlobContainer>
-            <StandaloneCar>
-              <img alt="defaultCar"src={MclarenCarImg} />
-            </StandaloneCar>
-          </RightContainer>
-        </TopSectionContainer>
-      );
+export function TopSection() {
+  return (
+    <TopSectionContainer>
+      <LeftContainer>
+        <Slogan>Rent The Best Quality Car's With Us</Slogan>
+        <Description>
+          Always choose the best car from our local stores or order it remotely
+          at the best price for you and get the best quality cars for as long as
+          you like
+        </Description>
+        <ButtonsContainer>
+          <Button text="Book Your Ride" />
+          <Button theme="filled" text="Sell Your Car" />
+        </ButtonsContainer>
+      </LeftContainer>
+      <RightContainer>
+        <BlobContainer>
+          <img alt="blob" src={BlobImg} />
+        </BlobContainer>
+        <StandaloneCar>
+          <img alt="defaultCar" src={MclarenCarImg} />
+        </StandaloneCar>
+      </RightContainer>
+    </TopSectionContainer>
+  );
 }
